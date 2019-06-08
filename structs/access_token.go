@@ -1,7 +1,7 @@
 package structs
 
-//FBAccessToken is the Facebook Access Token Struct
-type FBAccessToken struct {
+//PersonalAccessToken is the Facebook Access Token Struct
+type PersonalAccessToken struct {
 	AccessToken string `json:"at"`
 	FBID        string `json:"fbID"`
 }

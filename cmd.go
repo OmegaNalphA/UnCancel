@@ -8,8 +8,8 @@ import (
 	"os"
 )
 
-func openJSON() structs.FBAccessToken {
-	var access structs.FBAccessToken
+func openJSON() structs.PersonalAccessToken {
+	var access structs.PersonalAccessToken
 
 	jsonFile, jsonErr := os.Open("access_token.json")
 	if jsonErr != nil {
@@ -32,7 +32,6 @@ func openJSON() structs.FBAccessToken {
 }
 
 func main() {
-	fmt.Println("hello")
 	access := openJSON()
 	fmt.Println(access.FBID)
 }
