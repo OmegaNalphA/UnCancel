@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"net/http"
 	"os"
 )
 
@@ -31,7 +32,14 @@ func openJSON() structs.PersonalAccessToken {
 	// defer the closing of our jsonFile so that we can parse it later on
 }
 
+// func main() {
+// 	access := openJSON()
+// 	fmt.Println(access.FBID)
+// }
+
 func main() {
-	access := openJSON()
-	fmt.Println(access.FBID)
+	fs := http.FileServer(http.Dir("public"))
+	http.Handle("/", fs)
+
+	http.ListenAndServe(":8080", nil)
 }
